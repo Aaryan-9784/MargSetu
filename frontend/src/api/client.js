@@ -1,7 +1,16 @@
 import axios from 'axios';
 
+const rawBaseUrl = import.meta.env.VITE_API_URL || '';
+const normalizedBaseUrl = rawBaseUrl.endsWith('/') ? rawBaseUrl.slice(0, -1) : rawBaseUrl;
+
+if (!normalizedBaseUrl && import.meta.env.PROD) {
+  console.warn(
+    '⚠️ RoadSetu Configuration Alert: VITE_API_URL environment variable is not defined. API requests may fail. Please configure VITE_API_URL in your Vercel deployment settings.'
+  );
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '',
+  baseURL: normalizedBaseUrl,
   headers: {
     'Content-Type': 'application/json',
   },

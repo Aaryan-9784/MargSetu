@@ -11,6 +11,9 @@
   "keywords": ["roadsetu", "infrastructure", "asset-lifecycle", "government", "transportation"],
   "author": "RoadSetu Engineering",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
